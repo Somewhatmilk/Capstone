@@ -5,12 +5,13 @@ from llama_index import VectorStoreIndex, ServiceContext
 from llama_index.llms import OpenAI
 from llama_index import SimpleDirectoryReader
 import openai
-
-import json
+import time
 
 # style_file_path = r"C:\Users\somew\Desktop\Chatbot\style.css"
 #  with open(style_file_path) as css:
 #         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
+
+cooldown_duration = 5 
 
 def check_terms_and_conditions():
 #    
@@ -213,6 +214,7 @@ if check_terms_and_conditions():
     save_log_checkbox = st.button("Save Chat Log", key="save_log_checkbox")
     if save_log_checkbox:
         st.success("Saved Successfully!")
+        time.sleep(cooldown_duration)
     # Create a placeholder for the chat log display
     chat_log_placeholder = st.empty()
 
@@ -270,7 +272,7 @@ if check_terms_and_conditions():
                 # You can process and save the feedback data here
                 save_feedback(feedback_text)
                 st.sidebar.success("Thank you for your feedback!")
-
+                time.sleep(cooldown_duration)
     def save_feedback(feedback_text):
         # Define the file path to save feedback data as a TXT file
         feedback_file_path = "feedback_data.txt"
