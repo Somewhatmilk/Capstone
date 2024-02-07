@@ -9,6 +9,12 @@
 
 We are creating a Prototype Chatbot for the comapny SCL Industries
 
+
+## To start
+
+Create a folder name .streamlit in your repositiory then download secrets.toml and config.toml
+
+Change the input directory to your specific use case data and your all set
 ## License
 
 This project is licensed under the ANU Affero General Public License - see the LICENSE file for details.
